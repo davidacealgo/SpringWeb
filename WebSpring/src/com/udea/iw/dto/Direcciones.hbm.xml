@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/03/2017 01:20:52 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.udea.iw.dto.Direcciones" table="direcciones"><!-- Nombre de como se llame la tabla -->
+        <composite-id name="id" class="com.udea.iw.dto.DireccionId"><!--  Nombre de como está el atributo en la clase -->
+            <key-property name="codigo" type="java.lang.Long">	<!-- Define una parte de la clase primaria compuesta -->
+            <column name="CODIGO" length="12" not-null="true"/> 
+            </key-property>
+            <key-many-to-one name="Cliente" class="com.udea.iw.dto.Cliente">
+            <column name="CLIENTE"/>
+            </key-many-to-one> 
+        </composite-id>       
+        <property name="direccion" type="java.lang.String">
+            <column name="DIRECCION" length="30" not-null="false"/> <!-- Propiedades de cada fila de la tabla en la BD -->
+        </property>
+        <property name="telefono" type="java.lang.String">
+            <column name="TELEFONO" length="120" not-null="false"/> <!-- Propiedades de cada fila de la tabla en la BD -->
+        </property>
+        <property name="ciudad" type="java.lang.String">
+            <column name="CIUDAD" length="12" not-null="false"/> <!-- Propiedades de cada fila de la tabla en la BD -->
+        </property>
+        <property name="preferido" type="java.lang.Boolean">
+            <column name="PREFERIDO" not-null="false"/> <!-- Propiedades de cada fila de la tabla en la BD -->
+        </property>
+    </class>
+</hibernate-mapping>
